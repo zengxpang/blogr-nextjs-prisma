@@ -8,8 +8,8 @@ export default async function CreatePage() {
   if (!user) {
     return (
       <div className="panel">
-        <h1>New Draft</h1>
-        <p>You need to be authenticated to create a post.</p>
+        <h1>新建帖子</h1>
+        <p>创建帖子前需要先登陆</p>
       </div>
     );
   }
@@ -17,19 +17,19 @@ export default async function CreatePage() {
   return (
     <div className="panel">
       <form action={createPost} className="form">
-        <h1>New Draft</h1>
+        <h1>新建帖子</h1>
         <label className="field">
-          <span>Title</span>
+          <span>标题</span>
           <input autoFocus name="title" placeholder="Title" required />
         </label>
         <label className="field">
-          <span>Content</span>
+          <span>内容</span>
           <textarea name="content" placeholder="Content" required />
         </label>
         <div className="actions">
-          <button type="submit">Create</button>
+          <button type="submit">提交</button>
           <Link className="button secondary" href="/">
-            Cancel
+            取消
           </Link>
         </div>
       </form>

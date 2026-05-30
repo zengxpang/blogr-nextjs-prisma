@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Blogr",
+  title: "Blog",
   description:
     "A fullstack blog built with Next.js, Prisma, Sign in with Vercel, and Prisma Postgres.",
 };
@@ -21,23 +22,23 @@ export default async function RootLayout({
       <body>
         <header className="header">
           <nav className="nav" aria-label="Main navigation">
-            <Link href="/">Feed</Link>
-            {user ? <Link href="/drafts">My drafts</Link> : null}
+            <Link href="/">首页</Link>
+            {user ? <Link href="/drafts">我的帖子</Link> : null}
           </nav>
           <div className="header-actions">
             {user ? (
               <>
                 <span className="user">{user.name ?? user.email}</span>
                 <Link className="button secondary" href="/create">
-                  New post
+                  新建帖子
                 </Link>
                 <form action="/api/auth/signout" method="post">
-                  <button type="submit">Log out</button>
+                  <button type="submit">退出登陆</button>
                 </form>
               </>
             ) : (
               <Link className="button" href="/api/auth/authorize">
-                Sign in with Vercel
+                使用 Vercel 账号登录
               </Link>
             )}
           </div>

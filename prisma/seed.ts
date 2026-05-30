@@ -80,7 +80,7 @@ const posts = [
     authorIndex: 0,
   },
   {
-    title: "草稿：计划中的「评论系统」设计笔记",
+    title: "帖子：计划中的「评论系统」设计笔记",
     content:
       "暂存想法：楼中楼、审核流、与现有 Post / User 模型的关系——尚未实现。",
     published: false,
@@ -96,7 +96,7 @@ const posts = [
   {
     title: "学习笔记：一周复盘与下周计划",
     content:
-      "本周完成：Schema、Seed、列表页接库。下周：详情页优化、草稿发布流程、简单后台。",
+      "本周完成：Schema、Seed、列表页接库。下周：详情页优化、帖子发布流程、简单后台。",
     published: true,
     authorIndex: 0,
   },
@@ -123,7 +123,7 @@ async function main() {
 
   const publishedCount = posts.filter((p) => p.published).length;
   console.log(
-    `完成：${createdAuthors.length} 位作者，${posts.length} 篇文章（其中 ${publishedCount} 篇已发布）。`,
+    `完成：${createdAuthors.length} 位作者，${posts.length} 篇帖子（其中 ${publishedCount} 篇已发布）。`,
   );
 }
 

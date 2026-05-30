@@ -16,7 +16,7 @@ export default function PostCard({ post }: { post: PostCardData }) {
   return (
     <Link className="post-card" href={`/posts/${post.id}`}>
       <h2>{post.title}</h2>
-      <p className="meta">By {post.author?.name ?? "Unknown author"}</p>
+      <p className="meta">By {post.author?.name ?? "匿名"}</p>
       {post.content ? <ReactMarkdown>{post.content}</ReactMarkdown> : null}
     </Link>
   );

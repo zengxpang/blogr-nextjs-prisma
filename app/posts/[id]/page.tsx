@@ -33,18 +33,19 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="panel">
       <h1>{title}</h1>
-      <p className="meta">By {post.author?.name ?? "Unknown author"}</p>
+      <p className="meta">By {post.author?.name ?? "匿名"}</p>
       <ReactMarkdown>{post.content}</ReactMarkdown>
       {postBelongsToUser ? (
         <div className="actions">
           {!post.published ? (
+            //  bind方法用于携带自定义参数
             <form action={publishPost.bind(null, post.id)}>
-              <button type="submit">Publish</button>
+              <button type="submit">发布</button>
             </form>
           ) : null}
           <form action={deletePost.bind(null, post.id)}>
             <button className="secondary" type="submit">
-              Delete
+              删除
             </button>
           </form>
         </div>

@@ -16,7 +16,7 @@ export async function createPost(formData: FormData) {
   const content = String(formData.get("content") ?? "").trim();
 
   if (!title || !content) {
-    throw new Error("Title and content are required.");
+    throw new Error("标题和内容均为必填项");
   }
 
   await prisma.post.create({
@@ -27,8 +27,8 @@ export async function createPost(formData: FormData) {
     },
   });
 
-  revalidatePath("/drafts");
-  redirect("/drafts");
+  revalidatePath("/drafts"); // 帖子页缓存作废，下次访问要最新
+  redirect("/drafts"); // 立刻跳转到帖子页
 }
 
 export async function publishPost(id: string) {
@@ -44,7 +44,7 @@ export async function publishPost(id: string) {
   });
 
   if (post?.authorId !== user.id) {
-    throw new Error("You can only publish your own posts.");
+    throw new Error("你仅可以发布自己的帖子");
   }
 
   await prisma.post.update({
@@ -71,7 +71,7 @@ export async function deletePost(id: string) {
   });
 
   if (post?.authorId !== user.id) {
-    throw new Error("You can only delete your own posts.");
+    throw new Error("你仅可以删除自己的帖子");
   }
 
   await prisma.post.delete({ where: { id } });
