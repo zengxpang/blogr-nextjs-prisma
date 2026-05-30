@@ -58,7 +58,9 @@ main {
 }
 
 .post-card {
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .post-card:hover {
@@ -69,4 +71,72 @@ main {
 .meta {
   color: var(--muted);
   font-size: 0.875rem;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+.button {
+  border: 1px solid var(--foreground);
+  border-radius: 6px;
+  background: var(--foreground);
+  color: var(--surface);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 0.6rem 0.9rem;
+}
+
+button.secondary,
+.button.secondary {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.user {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span {
+  font-weight: 600;
+}
+
+input,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
 }
